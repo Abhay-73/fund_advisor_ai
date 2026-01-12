@@ -14,12 +14,13 @@ The system consists of three specialized agents:
 2.  **Quant Analyst:** Executes local Python code (pandas) to calculate financial metrics like Alpha, Beta, and Volatility.
 3.  **Financial Advisor:** Synthesizes technical data into human-readable investment advice.
 
+```mermaid
 graph TD
-    subgraph Frontend ["🖥️ Frontend (React)"]
+    subgraph Frontend ["Frontend (React)"]
         UI[User Interface] -->|POST /analyze| API
     end
 
-    subgraph Backend ["⚙️ Backend (FastAPI + CrewAI)"]
+    subgraph Backend ["Backend (FastAPI + CrewAI)"]
         API[FastAPI Endpoint] -->|Trigger| Crew[Agent Crew]
         
         subgraph Agents ["The Agent Team"]
@@ -40,7 +41,7 @@ graph TD
 
     Advisor -->|Return Email| API
     API -->|JSON Response| UI
-
+```
     
 ## Installation
 
