@@ -36,7 +36,7 @@ graph TD
 
     subgraph Tools ["External Tools"]
         Scout -->|Fetch NAV| AMFI[AMFI API]
-        Quant -->|Calc Risk| Python[Python REPL (Pandas)]
+        Quant -->|Calc Risk| Python["Python REPL (Pandas)"]
     end
 
     Advisor -->|Return Email| API
