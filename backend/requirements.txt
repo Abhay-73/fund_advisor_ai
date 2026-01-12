@@ -1,0 +1,8 @@
+crewai
+langchain
+langchain-google-genai
+langchain-experimental
+mftool
+deprecated
+pandas
+python-dotenv
