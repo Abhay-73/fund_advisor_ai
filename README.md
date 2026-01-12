@@ -1,6 +1,6 @@
 # Fund Advisor AI: Multi-Agent Financial Advisor
 
-FundFlow is an Agentic AI application that automates mutual fund analysis. It employs a **Multi-Agent System (MAS)** where autonomous agents (Scout, Quant, Advisor) collaborate to fetch live market data, calculate risk metrics (CAGR, Volatility), and generate personalized investment recommendations.
+Fund Advisor AI is an Agentic AI application that automates mutual fund analysis. It employs a **Multi-Agent System (MAS)** where autonomous agents (Scout, Quant, Advisor) collaborate to fetch live market data, calculate risk metrics (CAGR, Volatility), and generate personalized investment recommendations.
 
 
 ## Tech Stack
