@@ -35,7 +35,7 @@ def run_analysis(request: FundRequest):
             temperature=0.5
         )
 
-        # 2. DEFINE AGENTS (Second - So 'scout' exists)
+        # 2. DEFINE AGENTS 
         scout = Agent(
             role='Market Data Scout',
             goal='Retrieve accurate historical data',
@@ -62,11 +62,11 @@ def run_analysis(request: FundRequest):
             verbose=True
         )
 
-        # 3. DEFINE TASKS (Third - Now they can reference agents)
+        # 3. DEFINE TASKS
         task_fetch = Task(
             description=f"Fetch 5 years of data for Scheme {request.scheme_code} and save to CSV.",
             expected_output="File saved confirmation.",
-            agent=scout # <--- This works now because 'scout' was defined above
+            agent=scout 
         )
 
         task_analyze = Task(
@@ -77,13 +77,13 @@ def run_analysis(request: FundRequest):
             1. Read CSV: df = pd.read_csv('fund_data.csv')
             2. CLEANING (Critical):
                - Convert nav to numeric: df['nav'] = pd.to_numeric(df['nav'], errors='coerce')
-               - Filter Zeros: df = df[df['nav'] > 0.01]  <-- REMOVES THE -100% DRAWDOWN BUG
+               - Filter Zeros: df = df[df['nav'] > 0.01] 
                - Drop NaNs: df.dropna(inplace=True)
             
             3. CALCULATE RETURNS:
                - df['pct'] = df['nav'].pct_change()
                - Clean Infinite values: df.replace([float('inf'), -float('inf')], float('nan'), inplace=True)
-               - Drop NaNs again: df.dropna(inplace=True) <-- REMOVES THE NaN VOLATILITY BUG
+               - Drop NaNs again: df.dropna(inplace=True) 
 
             4. CALCULATE METRICS:
                - Years = (pd.to_datetime(df['date'].iloc[-1]) - pd.to_datetime(df['date'].iloc[0])).days / 365.25
@@ -126,7 +126,7 @@ def run_analysis(request: FundRequest):
             agent=advisor
         )
 
-        # 4. ASSEMBLE CREW (Last)
+        # 4. ASSEMBLE CREW
         crew = Crew(
             agents=[scout, quant, advisor],
             tasks=[task_fetch, task_analyze, task_advise],
