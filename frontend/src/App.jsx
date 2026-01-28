@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import './App.css'
 
 function App() {
@@ -51,9 +52,9 @@ function App() {
 
       {loading && (
         <div className="status-box">
-          <p>📡 <b>Scout</b> is fetching 3 years of data...</p>
+          <p>📡 <b>Scout</b> is fetching 3+ years of data...</p>
           <p>📊 <b>Quant</b> is calculating Alpha & Beta...</p>
-          <p>✍️ <b>Advisor</b> is drafting your letter...</p>
+          <p>✍️ <b>Advisor</b> is preparing your table...</p>
         </div>
       )}
 
@@ -61,7 +62,7 @@ function App() {
 
       {result && (
         <div className="result-box">
-          <ReactMarkdown>{result}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{result}</ReactMarkdown>
         </div>
       )}
     </div>

@@ -53,14 +53,67 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* --- Financial Dashboard Styles --- */
+
 .result-box {
-  background-color: #1a1a1a;
-  padding: 20px;
+  background-color: #1e1e1e; /* Dark Dashboard Background */
+  padding: 25px;
   border-radius: 12px;
-  text-align: left;
-  line-height: 1.6;
-  white-space: pre-wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border: 1px solid #333;
+  margin-top: 20px;
+  text-align: left;
+  color: #e0e0e0;
+}
+
+/* Make the Table Look Professional */
+.result-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  font-family: 'Roboto Mono', monospace; /* Tech/Financial font */
+  font-size: 0.95rem;
+}
+
+.result-box th {
+  background-color: #2d2d2d;
+  color: #8ab4f8; /* Soft Blue for headers */
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #444;
+}
+
+.result-box td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+}
+
+/* Zebra Striping for Rows */
+.result-box tr:nth-child(even) {
+  background-color: #262626;
+}
+
+/* Highlight the 'Value' column */
+.result-box td:nth-child(2) {
+  color: #4ec9b0; /* Mint green for numbers */
+  font-weight: bold;
+}
+
+/* Style the Blockquotes (Verdict & Horizon) */
+.result-box blockquote {
+  background-color: #252526;
+  border-left: 5px solid #646cff; /* Purple accent bar */
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+/* Make the labels (VERDICT:) pop */
+.result-box strong {
+  color: #ff9f43; /* Orange/Gold for emphasis */
 }
 
 .status-box {
