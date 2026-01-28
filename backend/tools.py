@@ -18,7 +18,6 @@ class FundDataTool(BaseTool):
             data = mf.get_scheme_historical_nav(scheme_code, as_Dataframe=False)
             df = pd.DataFrame(data['data'])
             
-            # CRITICAL FIX: Coerce to numeric and sort
             df['nav'] = pd.to_numeric(df['nav'], errors='coerce')
             df['date'] = pd.to_datetime(df['date'], format='%d-%m-%Y')
             df = df.sort_values(by='date', ascending=True) # Oldest to Newest
@@ -37,7 +36,7 @@ class LocalPythonTool(BaseTool):
     )
 
     def _run(self, code: str) -> str:
-        # We inject a specific preamble to ensure the math libraries are ready
+        
         try:
             python_repl = PythonREPLTool()
             return python_repl.run(code)
